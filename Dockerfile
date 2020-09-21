@@ -4,7 +4,7 @@ WORKDIR /usr/src/app
 RUN chmod 777 /usr/src/app
 
 RUN apt-get -qq update && \
-    apt-get install -y software-properties-common && \
+    DEBIAN_FRONTEND="noninteractive" apt-get install -y software-properties-common && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get -qq update && \
     apt-get -qq install -y p7zip-full p7zip-rar aria2 curl pv jq ffmpeg locales python3-lxml && \
